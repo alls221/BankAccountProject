@@ -8,18 +8,18 @@ namespace BankAccountProject
 {
    public class Clients
     {
-        string Name;
-        int AccountNumber;
+        string name = "Jane Doe";
+        int accountNumber = GetAccountnumber();
 
-        public string name { get { return this.Name; } set { this.name = value; } }
-        int accountNumber { get { return this.AccountNumber; } set { this.accountNumber = value; } }
+        public string Name { get; set; }
+        public int AccountNumber { get; set; }
 
-        public Clients ()
+        public Clients()
         {
-            this.name ="Jane Doe";
-            this.accountNumber = GetAccountnumber();
+            Name = name;
+            AccountNumber = accountNumber;
         }
-        public int GetAccountnumber ()
+        public static int GetAccountnumber ()
         {
             Random randomNumber = new Random();
             int accountNum=randomNumber.Next(100000, 1000000);

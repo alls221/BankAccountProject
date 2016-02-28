@@ -17,7 +17,9 @@ namespace BankAccountProject
                 string choice = Console.ReadLine();
                 int menuChoice;
                 bool result = int.TryParse(choice, out menuChoice);
-                if (result == true)
+                Clients client = new Clients();
+                Accounts account = new Accounts();
+                if (result == true) 
                 {
                     if (menuChoice==5)
                     {
@@ -26,20 +28,43 @@ namespace BankAccountProject
                     }
                     else
                     {
-                        switch(menuChoice)
+                        switch (menuChoice)
                         {
                             case 1:// this is the view client information section, will need to call the client class
-                                Clients client = new Clients();
-                                Console.WriteLine(client.name);
-                                Console.WriteLine(client.GetAccountnumber());
+                                Console.Clear();
+                                Title();
+                                Console.WriteLine("Name:"+client.Name);
+                                Console.WriteLine("Account Number:"+ client.AccountNumber);
+                                ReturnToMain();
                                 break;
                             case 2: // This is the view account balance section, will need to call the accounts class here
+                                Console.Clear();
+                                Title();
+                                Console.WriteLine("Account Number:" + client.AccountNumber);
+                                Console.WriteLine("Balance:" +account.Balance);
+                                ReturnToMain();
                                 break;
                             case 3: // this is the deposit funds section, Deposit method is containted in the accounts class
+                                Console.Clear();
+                                Title();
+                                int depositAmt=Accounts.GetDepositAmt();
+                                int newBalance = Accounts.DepositFunds(account.Balance, depositAmt );
+                                Console.WriteLine("Balance:" + newBalance);
+                                ReturnToMain();
                                 break;
                             case 4: // this is the Withdraw funds sections, Withdraw method is in the accounts class
+                                Console.Clear();
+                                Title();
+                                int withDrwAmt = Accounts.GetWithDrawAmt();
+                                int addBalance = Accounts.WithdrawFunds(account.Balance, withDrwAmt);
+                                Console.WriteLine("Balance:" + addBalance);
+                                ReturnToMain();
                                 break;
                             default:// puts something for an error here
+                                Console.Clear();
+                                Title();
+                                Console.WriteLine("Error Invalid Entry");
+                                ReturnToMain();
                                 break;
 
                         }
