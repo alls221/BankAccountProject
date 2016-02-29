@@ -10,6 +10,9 @@ namespace BankAccountProject
     {
         static void Main(string[] args)
         {
+            Clients client = new Clients();
+            Accounts account = new Accounts();
+            int Balance;
             while (true)
             {
                 Title();
@@ -17,8 +20,7 @@ namespace BankAccountProject
                 string choice = Console.ReadLine();
                 int menuChoice;
                 bool result = int.TryParse(choice, out menuChoice);
-                Clients client = new Clients();
-                Accounts account = new Accounts();
+                
                 if (result == true) 
                 {
                     if (menuChoice==5)
@@ -47,17 +49,15 @@ namespace BankAccountProject
                             case 3: // this is the deposit funds section, Deposit method is containted in the accounts class
                                 Console.Clear();
                                 Title();
-                                int depositAmt=Accounts.GetDepositAmt();
-                                int newBalance = Accounts.DepositFunds(account.Balance, depositAmt );
-                                Console.WriteLine("Balance:" + newBalance);
+                                int depositAmt = account.GetDepositAmt();
+                                account.DepositFunds(Balance, depositAmt);
                                 ReturnToMain();
                                 break;
                             case 4: // this is the Withdraw funds sections, Withdraw method is in the accounts class
                                 Console.Clear();
                                 Title();
-                                int withDrwAmt = Accounts.GetWithDrawAmt();
-                                int addBalance = Accounts.WithdrawFunds(account.Balance, withDrwAmt);
-                                Console.WriteLine("Balance:" + addBalance);
+                                int withDrawAmt = account.GetWithDrawAmt();
+                                account.WithdrawFunds(Balance, withDrawAmt);
                                 ReturnToMain();
                                 break;
                             default:// puts something for an error here

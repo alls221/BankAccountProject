@@ -23,23 +23,23 @@ namespace BankAccountProject
             WithDrawAmt = withDrawAmt;
         }
 
-        public static int WithdrawFunds (int Balance, int WithDrawAmt)
+        public void WithdrawFunds (int Balance, int WithDrawAmt)
         {
-            int balance = (Balance - WithDrawAmt);
-            return balance;
+            Balance = Balance - WithDrawAmt;
+            Console.WriteLine("Balance:" +Balance);
         }
-        public static int DepositFunds (int Balance, int DepositAmt)
+        public void DepositFunds (int Balance, int DepositAmt)
         {
-            int balance= (Balance + DepositAmt);
-            return balance;
+            Balance= Balance + DepositAmt;
+            Console.WriteLine("Balance:"+Balance);
         }
-        public static int GetWithDrawAmt ()
+        public int GetWithDrawAmt ()
         {
             Console.WriteLine("Enter the ammount to Withdraw");
             int WithDrawAmt = int.Parse(Console.ReadLine());
             return WithDrawAmt;
         }
-        public static int GetDepositAmt ()
+        public int GetDepositAmt ()
         {
             Console.WriteLine("Enter the ammount to Deposit");
             int DepositAmt = int.Parse(Console.ReadLine());
