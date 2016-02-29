@@ -14,6 +14,7 @@ namespace BankAccountProject
             Clients client = new Clients();
             Accounts account = new Accounts();
             StreamWriter sw = new StreamWriter("AccountSummary.txt");
+            DateTime date = DateTime.Now;
             using (sw)
             {
                 while (true)
@@ -58,7 +59,7 @@ namespace BankAccountProject
                                     decimal depositAmt = account.GetDepositAmt();
                                     account.DepositFunds(depositAmt);
                                     sw.Write(" + " +"$"+ depositAmt);
-                                    sw.Write(" Balance: " +"$"+ account.Balance);
+                                    sw.Write(" Balance: " +"$"+ account.Balance+ " "+ date );
                                     sw.WriteLine(" ");
                                     ReturnToMain();
                                     break;
@@ -69,7 +70,7 @@ namespace BankAccountProject
                                     decimal withDrawAmt = account.GetWithDrawAmt();
                                     account.WithdrawFunds(withDrawAmt);
                                     sw.Write(" - " + "$"+ withDrawAmt);
-                                    sw.Write(" Balance: " + "$"+account.Balance);
+                                    sw.Write(" Balance: " + "$"+account.Balance+ " "+ date);
                                     sw.WriteLine(" ");
                                     ReturnToMain();
                                     break;
