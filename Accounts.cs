@@ -8,13 +8,13 @@ namespace BankAccountProject
 {
    public class Accounts
     {
-        int balance=0;
-        int depositAmt = 0;
-        int withDrawAmt = 0;
+        decimal balance=0;
+        decimal depositAmt = 0;
+        decimal withDrawAmt = 0;
 
-        public int Balance { get; set; }
-        public int DepositAmt { get; set; }
-        public int WithDrawAmt { get; set; }
+        public decimal Balance { get; set; }
+        public decimal DepositAmt { get; set; }
+        public decimal WithDrawAmt { get; set; }
 
         public Accounts ()
         {
@@ -23,27 +23,49 @@ namespace BankAccountProject
             WithDrawAmt = withDrawAmt;
         }
 
-        public void WithdrawFunds (int Balance, int WithDrawAmt)
+        public void WithdrawFunds (decimal WithDrawAmt)
         {
             Balance = Balance - WithDrawAmt;
-            Console.WriteLine("Balance:" +Balance);
+            Console.WriteLine("Balance:" +"$" +Balance);
         }
-        public void DepositFunds (int Balance, int DepositAmt)
+        public void DepositFunds ( decimal DepositAmt)
         {
             Balance= Balance + DepositAmt;
-            Console.WriteLine("Balance:"+Balance);
+            Console.WriteLine("Balance: "+"$" +Balance);
         }
-        public int GetWithDrawAmt ()
+        public decimal GetWithDrawAmt ()
         {
-            Console.WriteLine("Enter the ammount to Withdraw");
-            int WithDrawAmt = int.Parse(Console.ReadLine());
-            return WithDrawAmt;
+            while (true)
+            {
+                Console.WriteLine("Enter the ammount to Withdraw");
+                string wa = Console.ReadLine();
+                if (decimal.TryParse(wa, out withDrawAmt) == true)
+                {
+                    return withDrawAmt;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Entry");
+                    continue;
+                }
+            }
         }
-        public int GetDepositAmt ()
-        {
-            Console.WriteLine("Enter the ammount to Deposit");
-            int DepositAmt = int.Parse(Console.ReadLine());
-            return DepositAmt;
+        public decimal GetDepositAmt ()
+        { 
+        while (true)
+            {
+                Console.WriteLine("Enter the ammount to Deposit");
+                string da = Console.ReadLine();
+                if (decimal.TryParse(da, out depositAmt) == true)
+                {
+                    return depositAmt;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Entry");
+                    continue;
+                }
+            }
         }
     }
 }

@@ -1,0 +1,9 @@
+Jane Doe
+820898
+Starting Balance: $0 + $123.45 Balance: $123.45 
+Starting Balance: $123.45 + $1234 Balance: $1357.45 
+Starting Balance: $1357.45 + $124 Balance: $1481.45 
+Starting Balance: $1481.45 + $125.66 Balance: $1607.11 
+Starting Balance: $1607.11 - $123 Balance: $1484.11 
+Starting Balance: $1484.11 - $127.90 Balance: $1356.21 
+Starting Balance: $1356.21 - $123 Balance: $1233.21 
