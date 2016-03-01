@@ -29,7 +29,10 @@ namespace BankAccountProject
                     {
                         if (menuChoice == 5)
                         {
+                            Console.Clear();
                             Console.WriteLine("Goodbye");
+                            Console.WriteLine("Press any to close");
+                            Console.ReadKey();
                             break;
                         }
                         else

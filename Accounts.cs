@@ -25,12 +25,12 @@ namespace BankAccountProject
 
         public void WithdrawFunds (decimal WithDrawAmt)
         {
-            Balance = Balance - WithDrawAmt;
+            Balance = Math.Round((Balance - WithDrawAmt),2);
             Console.WriteLine("Balance:" +"$" +Balance);
         }
         public void DepositFunds ( decimal DepositAmt)
         {
-            Balance= Balance + DepositAmt;
+            Balance= Math.Round( (Balance + DepositAmt),2);
             Console.WriteLine("Balance: "+"$" +Balance);
         }
         public decimal GetWithDrawAmt ()
